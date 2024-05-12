@@ -12,15 +12,15 @@ export default class Cart {
     }
 
     calculateTotalCost(): number {
-      return this. _items.reduce((total, this.item) => total + this.items.price, 0)
+        return this._items.reduce((total, currentItem) => total + currentItem.price, 0);
     }
 
     calculateTotalCostWithDiscount(discount: number): number {
-      const totalCostDiscount = this.calculateTotalCost();
-      return totalCostDiscount - (totalCostDiscount * discount);
+        const totalCost = this.calculateTotalCost();
+        return totalCost - (totalCost * discount);
     }
 
     removeItemById(id: number): void {
-      this._items = this._items.filter((item: Buyable) => item.id !== id);
+        this._items = this._items.filter((item: Buyable) => item.id !== id);
     }
 }
